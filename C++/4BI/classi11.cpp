@@ -24,7 +24,7 @@ public:
   float return_percentage() { return extension / 100 * building_percentage; }
   void print() {
     cout << "Codice: " << code << "\n"
-         << "Estensione: " << extension << "n"
+         << "Estensione: " << extension << "\n"
          << "Percentuale edificabile: " << building_percentage << "\n"
          << "Prezzo: " << price << "\n";
   }
