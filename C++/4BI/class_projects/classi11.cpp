@@ -28,6 +28,9 @@ public:
          << "Percentuale edificabile: " << building_percentage << "\n"
          << "Prezzo: " << price << "\n";
   }
+  void withdrawal(){
+    
+  }
 };
 int main() {
   vector<terrain> ter;
