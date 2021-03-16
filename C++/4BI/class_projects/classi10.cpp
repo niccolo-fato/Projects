@@ -8,7 +8,7 @@ const int MAX_C = 100;
 
 struct client {
   string code;
-  float balance;
+  float bill;
   string surname;
   string name;
 };
@@ -26,8 +26,8 @@ public:
     cout << "Inserisci il codice:";
     cin >> c[count].code;
     cout << "Inserisci il conto:";
-    cin >> c[count].balance;
-    sum += c[count].balance;
+    cin >> c[count].bill;
+    sum += c[count].bill;
     count++;
   }
   void withdrawal() {
@@ -38,8 +38,8 @@ public:
     cout << "Inserisci quanto vuoi prelevare:";
     cin >> wd;
     for (int i = 0; i < count; i++) {
-      if (search_code == c[i].code && c[i].balance >= wd) {
-        c[i].balance -= wd;
+      if (search_code == c[i].code && c[i].bill >= wd) {
+        c[i].bill -= wd;
         verify = true;
         cout << "~Prelievo eseguito con successo~\n";
       }
@@ -55,11 +55,13 @@ public:
     string search_code;
     cout << "Inserisci il codice dal quale vuoi fare un versamento:";
     cin >> search_code;
-    cout << "Inserisci quanto vuoi versare:";
-    cin >> pm;
+    do {
+      cout << "Inserisci quanto vuoi versare(minimo di 100$):";
+      cin >> pm;
+    } while (pm <= 100);
     for (int i = 0; i < count; i++) {
       if (search_code == c[i].code) {
-        c[i].balance += pm;
+        c[i].bill += pm;
         verify = true;
         cout << "~Versamento eseguito con successo~\n";
       }
@@ -80,7 +82,7 @@ public:
              << c[i].surname
              << "\n"
                 "Conto:"
-             << c[i].balance
+             << c[i].bill
              << "$\n"
                 "Codice:"
              << c[i].code << "\n";
@@ -104,8 +106,8 @@ public:
       if (first_code == c[i].code) {
         for (int j = 0; j < count; j++) {
           if (second_code == c[j].code) {
-            c[i].balance -= t;
-            c[j].balance += t;
+            c[i].bill -= t;
+            c[j].bill += t;
           }
         }
       }
@@ -117,25 +119,25 @@ public:
     average = sum / count;
     f.open("client.txt");
     for (int i = 0; i < count; i++) {
-      if (c[i].balance > average) {
+      if (c[i].bill > average) {
         f << c[i].name << " " << c[i].surname << " " << c[i].code << " "
-          << c[i].balance << "\n";
+          << c[i].bill << "\n";
       }
     }
-    cout << "\t\t~Conti inseriti nel file con successo~\n"; 
+    cout << "\t\t~Conti inseriti nel file con successo~\n";
     f.close();
   }
   void max_min() {
     float max = 0;
     float min = 0;
     for (int i = 0; i < count; i++) {
-      if (c[i].balance > max)
-        max = c[i].balance;
+      if (c[i].bill > max)
+        max = c[i].bill;
     }
     min = max;
     for (int i = 0; i < count; i++) {
-      if (c[i].balance < min)
-        min = c[i].balance;
+      if (c[i].bill < min)
+        min = c[i].bill;
     }
     cout << "Il conto minore e' " << min << " mentre quello maggiore e' " << max
          << "\n";
@@ -144,21 +146,20 @@ public:
     client tmp;
     for (int i = 0; i < count - 1; i++) {
       for (int j = i + 1; i < count; i++) {
-        if (c[i].balance > c[j].balance) {
+        if (c[i].bill > c[j].bill) {
           tmp = c[i];
           c[i] = c[j];
           c[j] = tmp;
         }
       }
     }
-    cout<<"~\t\tOrdinamento effettuato\n";
+    cout << "~\t\tOrdinamento effettuato\n";
   }
   void input_file() {
     ifstream f;
     f.open("client2.txt");
     while (!f.eof()) {
-      f >> c[count].code >> c[count].balance >> c[count].name >>
-          c[count].surname;
+      f >> c[count].code >> c[count].bill >> c[count].name >> c[count].surname;
       count++;
     }
     cout << "~\t\tConti inseriti correttamente\n";
