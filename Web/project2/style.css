@@ -1,0 +1,54 @@
+body{
+    margin: 0;
+    padding: 0;
+    background: rgb(59, 59, 61);
+}
+.main{
+    width: 300px;
+    padding: 40px;
+    top: 30%;
+    left: 40%;
+    position:absolute;
+    background: rgb(0, 0, 0);
+    text-align: center;
+    box-shadow: 0px 5px 70px rgb(0, 255, 0);
+    border-radius: 24px;
+}
+.main input[type = "text"]{
+    border: 0;
+    color: white;
+    background: none;
+    outline: none;
+    margin: 10px;
+    text-align: center;
+    border: 2px solid rgb(2, 48, 255);
+    padding: 15px 11px;
+    width: 220px;
+    border-radius: 24px;
+}
+.main ::placeholder{
+    color: white;
+}
+.main input[type = "text"]:hover{
+    width: 260px;
+    border-color:  rgb(0, 255, 34);
+}
+.main h1{
+    color:  rgb(0, 26, 255);
+}
+.main input[type = "button"]{
+    border: 0;
+    color: white;
+    background: none;
+    margin: 10px;
+    text-align: center;
+    border: 2px solid rgb(0, 255, 34);
+    padding: 15px 11px;
+    width: 150px;
+    border-radius: 24px;
+    outline: none;
+}
+.main input[type = "button"]:hover{
+    width: 190px;
+    border: 2px solid rgb(129, 20, 20);
+}
