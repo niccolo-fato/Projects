@@ -18,7 +18,7 @@ using namespace std;
 int NUM_G = 0;
 class competition
 {
-    double surname, locality;
+    string surname, locality;
     int age;
     float height;
 
@@ -43,7 +43,7 @@ public:
     }
     string locality2()
     {
-        return (locality);
+        return(locality);
     }
     int age2()
     {
@@ -51,7 +51,7 @@ public:
     }
     string surname2()
     {
-        return (surname);
+        return(surname);
     }
     void print()
     {
