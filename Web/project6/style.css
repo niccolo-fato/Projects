@@ -1,0 +1,45 @@
+body{
+    margin: 0;
+    padding: 0;
+    background: rgb(0, 0, 0);
+}
+.main{
+    width: 300px;
+    padding: 40px;
+    top: 30%;
+    left: 35%;
+    position:absolute;
+    background: rgb(255, 255, 255);
+    text-align: center;
+    border-radius: 24px;
+    border-style: solid;
+    border-color: black;
+}
+.main input[type = "text"]{
+    width: 260px;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 24px;
+    text-align: center;
+    margin: 3px;
+    outline: none;
+}
+.main input[type = "date"]{
+    width: 260px;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 24px;
+    text-align: center;
+    margin: 3px;
+    outline: none;
+}
+.main input[type = "button"]{
+    border: 0;
+    color: rgb(0, 0, 0);
+    background: white;
+    margin: 10px;
+    text-align: center;
+    border: 2px solid rgb(0, 0, 0);
+    padding: 15px 11px;
+    width: 150px;
+    border-radius: 24px;
+    outline: none;
+}
